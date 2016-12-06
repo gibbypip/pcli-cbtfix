@@ -21,7 +21,7 @@ $global:i=0
 Get-View -ViewType VirtualMachine -Filter @{"name" = "^(?!vse-).*$"; "Config.Template" = "false"} | Where-Object {$_.Config.ChangeTrackingEnabled -eq $false } | Select-Object Name |  Select @{Name="Item";Expression={$global:i++;$global:i}}, Name -outVariable menu | format-table -auto 
     if (-not $menu) {"All VM's have CBT enabled. Exiting..."}
     else {
-        #verify input from user is numarical
+        #verify input from user is numerical
         do {
             try { 
                 $numOK = $true
